@@ -3,13 +3,13 @@
 services:
   pheme:
     build: .
+    platform: linux/amd64
     ports:
-      - "3000:3000"
+      - "8025:8000"
     volumes:
       - .:/app
-    depends_on:
-      - db
     environment:
-      - DATABASE_URL=postgres://postgres:password@db:5432/pheme
-      - RAILS_ENV=development
-    command: bundle exec rails s -b
+      - PHEME_HOST=0.0.0.0
+      - PHEME_PORT=8000
+      - HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}
+      - PHONEMIZER_ESPEAK_LIBRARY=${PHONEMIZER_ESPEAK_LIBRARY}
