@@ -1,3 +1,4 @@
+accelerate==0.26.1
 aiofiles==23.2.1
 aiohttp==3.9.1
 aiosignal==1.3.1
@@ -79,7 +80,7 @@ platformdirs==4.0.0
 pooch==1.8.0
 primePy==1.3
 protobuf==4.25.1
-pyannote.audio @ https://github.com/pyannote/pyannote-audio/archive/develop.zip
+pyannote.audio @ https://github.com/pyannote/pyannote-audio/archive/develop.zip#sha256=436224b29259edef769e68e0e013eff67d56e327d56153d51af8a6a8ee9d72df
 pyannote.core==5.0.0
 pyannote.database==5.0.1
 pyannote.metrics==3.2.1
@@ -92,6 +93,7 @@ Pygments==2.17.2
 pylatexenc==2.10
 pyparsing==3.1.1
 python-dateutil==2.8.2
+python-dotenv==1.0.1
 python-multipart==0.0.6
 pytorch-lightning==2.1.2
 pytorch-metric-learning==2.3.0
@@ -119,7 +121,7 @@ sniffio==1.3.0
 sortedcontainers==2.4.0
 soundfile==0.12.1
 soxr==0.3.7
-speechbrain==0.5.16
+speechbrain
 speechtokenizer==0.1.2
 SQLAlchemy==2.0.23
 starlette==0.27.0
@@ -130,22 +132,17 @@ threadpoolctl==3.2.0
 tokenizers==0.15.0
 tomlkit==0.12.0
 toolz==0.12.0
-torch==2.1.1
 torch-audiomentations==0.11.0
 torch-pitch-shift==1.2.4
-torchaudio==2.1.1
 torchmetrics==1.2.1
-torchvision==0.16.1
 tqdm==4.66.1
 transformers==4.35.2
-#triton==2.1.0
 typer==0.9.0
 typing_extensions==4.8.0
 tzdata==2023.3
 uritemplate==4.1.1
 urllib3==2.1.0
 uvicorn==0.24.0.post1
+wandb==0.16.2
 websockets==11.0.3
 yarl==1.9.3
-accelerate==0.26.1
-wandb==0.16.2
