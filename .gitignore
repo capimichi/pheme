@@ -6,3 +6,5 @@ exp/*
 datasets/*
 wandb/*
 venv/*
+.env
+.idea
