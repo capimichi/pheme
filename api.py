@@ -309,5 +309,5 @@ def voices():
 # Run the FastAPI app
 if __name__ == "__main__":
     host = os.getenv("PHEME_HOST", "0.0.0.0")
-    port = int(os.getenv("PHEME_PORT", 8025))
+    port = int(os.getenv("PHEME_PORT", 8000))
     uvicorn.run(app, host=host, port=port)
