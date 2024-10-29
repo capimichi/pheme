@@ -1,0 +1,15 @@
+
+
+services:
+  pheme:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/pheme
+      - RAILS_ENV=development
+    command: bundle exec rails s -b
