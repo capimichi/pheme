@@ -1,3 +1,22 @@
+# Capimichi Edit
+
+To run, first generate the token in your huggingface account and set the environment variable:
+
+```
+HUGGING_FACE_HUB_TOKEN=YOUR_PRIVATE_TOKEN
+```
+
+**Be sure to get access to this repository by filling required informations:**
+
+> https://huggingface.co/pyannote/embedding 
+
+Then run the following commands:
+
+```bash
+docker run -d capimichi/pheme:latest python api.py -e HUGGING_FACE_HUB_TOKEN=YOUR_PRIVATE_TOKEN 
+```
+
+
 # Pheme Model
 
 This repo contains recipes and models used for training Pheme TTS models. It is the official implementation for the
