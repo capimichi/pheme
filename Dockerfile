@@ -39,12 +39,7 @@ RUN mv ckpt/pheme/s2a.ckpt ckpt/s2a/s2a.ckpt
 
 RUN rm -rf ckpt/pheme
 
-#RUN pip install torchvision
-
-#RUN mkdir ~/.ssh
-#RUN echo "Host *\
-#        StrictHostKeyChecking accept-new\
-#" > ~/.ssh/config
-#RUN git lfs install && git lfs pull
+# Set environment variable PHONEMIZER_ESPEAK_LIBRARY=/usr/lib/aarch64-linux-gnu/libespeak-ng.so.1
+ENV PHONEMIZER_ESPEAK_LIBRARY=/usr/lib/aarch64-linux-gnu/libespeak-ng.so.1
 
 CMD [ "python", "api.py" ]
