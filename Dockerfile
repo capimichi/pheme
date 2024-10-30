@@ -8,10 +8,10 @@ COPY . /app
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential gcc libsndfile1 ffmpeg espeak-ng git-lfs
 
-RUN pip3 install torch torchvision torchaudio
+RUN pip install torch torchvision torchaudio
 
 # Install any needed packages specified in requirements.txt
-RUN pip3 install -r requirements.txt --no-deps
+RUN pip install -r requirements.txt --no-deps
 
 RUN mkdir -p ckpt/speechtokenizer
 
