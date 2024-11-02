@@ -41,7 +41,6 @@ MAX_TOKEN_COUNT = 100
 logging.basicConfig(level=logging.DEBUG)
 device = torch.cuda.current_device() if torch.cuda.is_available() else "cpu"
 
-
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -260,20 +259,6 @@ class PhemeClient():
         return audio_array
 
 
-if __name__ == "__main__":
-    args = parse_arguments()
-    args.outputdir = Path(args.outputdir).expanduser()
-    args.outputdir.mkdir(parents=True, exist_ok=True)
-    args.manifest_path = Path(args.manifest_path).expanduser()
-
-    client = PhemeClient(args)
-    audio_array = client.infer(args.text, voice=args.voice)
-    sf.write(os.path.join(
-        args.outputdir, f"{args.voice}.wav"), audio_array,
-        args.target_sample_rate
-    )
-
-
 app = FastAPI()
 
 class InferenceRequest(BaseModel):
@@ -293,6 +278,10 @@ def infer(request: InferenceRequest):
     # output_path = os.path.join(args.outputdir, f"{request.voice}.wav")
     temp_output_path = tempfile.mktemp(suffix=".wav")
     sf.write(temp_output_path, audio_array, args.target_sample_rate)
+
+    # release resources
+    del client
+
     return FileResponse(temp_output_path, media_type="audio/wav", filename="output.wav")
 
 @app.get("/voices")
