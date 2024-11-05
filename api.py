@@ -6,9 +6,12 @@ import argparse
 import json
 import logging
 import os
+import signal
 import tempfile
 import time
 from pathlib import Path
+
+import gc
 
 import numpy as np
 import soundfile as sf
@@ -281,6 +284,10 @@ def infer(request: InferenceRequest):
 
     # release resources
     del client
+    del audio_array
+    del args
+
+    gc.collect()
 
     return FileResponse(temp_output_path, media_type="audio/wav", filename="output.wav")
 
@@ -294,6 +301,12 @@ def voices():
         "POD0000004393_S0000029",
         "POD0000007005_S0000568",
     ]}
+
+@app.post("/kill")
+def kill():
+    command = "pkill -f python"
+    os.system(command)
+
 
 # Run the FastAPI app
 if __name__ == "__main__":
