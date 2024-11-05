@@ -43,3 +43,6 @@ RUN rm -rf ckpt/pheme
 ENV PHONEMIZER_ESPEAK_LIBRARY=/usr/lib/aarch64-linux-gnu/libespeak-ng.so.1
 
 CMD [ "python", "api.py" ]
+
+#RUN chmod +x api.sh
+#CMD ["./api.sh"]
